@@ -65,7 +65,6 @@ public class BlackListBoltB extends BaseRichBolt {
                     psB.setString(1, day);
                     psB.setString(2, uid);
                     psB.setString(3, aid);
-                    // psB.setInt(4, 1);
                     psB.setString(4, value);
                     psB.executeUpdate();
                     psB.close();

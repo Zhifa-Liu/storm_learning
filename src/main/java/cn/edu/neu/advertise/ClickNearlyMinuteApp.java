@@ -49,11 +49,8 @@ public class ClickNearlyMinuteApp {
 
     private static KafkaSpoutConfig<String, String> getKafkaSpoutConfig() {
         return KafkaSpoutConfig.builder(ClickNearlyMinuteApp.BOOTSTRAP_SERVERS, ClickNearlyMinuteApp.TOPIC_NAME)
-                // 除了分组ID,以下配置都是可选的。分组ID必须指定,否则会抛出InvalidGroupIdException异常
                 .setProp(ConsumerConfig.GROUP_ID_CONFIG, "kafkaSpoutTestGroup")
-                // 定义重试策略
                 .setRetry(getRetryService())
-                // 定时提交偏移量的时间间隔,默认是15s
                 .setOffsetCommitPeriodMs(10_000)
                 .build();
     }
